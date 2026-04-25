@@ -1,0 +1,13 @@
+workflows:
+  production:
+    name: ChatGPT Clone Build
+    max_build_duration: 120
+    environment:
+      flutter: stable
+    scripts:
+      - flutter pub get
+      - flutter build appbundle --release
+      - flutter build apk --release
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/*.apk
